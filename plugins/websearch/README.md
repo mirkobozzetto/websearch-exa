@@ -1,8 +1,10 @@
 # websearch
 
-A single `/websearch` slash command for Claude Code that routes your query to the right [Exa](https://exa.ai) tool based on intent. Eight specialized modes, smart filters, and structured reports with inline citations.
+A single `/websearch` slash command that routes your query to the right [Exa](https://exa.ai) tool based on intent. Eight specialized modes, smart filters, and structured reports with inline citations.
 
-Replaces the native `WebSearch` and `WebFetch` tools entirely.
+Replaces native `WebSearch` and `WebFetch` tools entirely.
+
+**Compatibility**: Native plugin install is wired for Claude Code v2.1+. The skill itself is plain markdown - any AI coding agent that can read markdown skills and call MCP tools (Codex, Cursor, etc.) can use it by loading the files directly from `plugins/websearch/skills/websearch/`.
 
 ---
 
@@ -47,26 +49,47 @@ Exa is a search engine built for LLMs (semantic + neural ranking). It exposes 4 
 
 This is a one-time setup. Takes about 3 minutes.
 
-### 1. Get an Exa API key
+### 1. (Optional) Get an Exa API key
+
+The hosted endpoint `https://mcp.exa.ai/mcp` works **anonymously** with a free, rate-limited tier. You only need a key if:
+
+- You hit rate limits on the hosted endpoint, or
+- You run the local npm server (key is mandatory there).
+
+To get a key:
 
 - Sign up at [dashboard.exa.ai](https://dashboard.exa.ai).
-- Free tier: 1,000 searches/month at the time of writing.
+- Free plan available, ~1,000 searches/month at the time of writing.
 - Create a key at [dashboard.exa.ai/api-keys](https://dashboard.exa.ai/api-keys).
-- Copy it - you will need it in step 2.
 
 ### 2. Register the Exa MCP server
 
-You have two options.
+Two options.
 
-**Option A - hosted HTTP transport (recommended, no local server)**
+**Option A - hosted HTTP transport (recommended)**
+
+No local server, no env var. Works anonymously, free tier rate-limited.
 
 ```bash
 claude mcp add --transport http exa https://mcp.exa.ai/mcp
 ```
 
-The hosted endpoint accepts the API key as a query parameter when needed. See [docs.exa.ai/reference/exa-mcp](https://docs.exa.ai/reference/exa-mcp) for current details.
+To bypass rate limits, pass the key. Three accepted methods (priority order):
 
-**Option B - local npm server (more control, needs API key in env)**
+1. `Authorization: Bearer YOUR_KEY` header (recommended).
+2. `x-api-key: YOUR_KEY` header.
+3. `?exaApiKey=YOUR_KEY` URL query param (legacy compat).
+
+Example with header:
+
+```bash
+claude mcp add --transport http exa https://mcp.exa.ai/mcp \
+  --header "Authorization: Bearer YOUR_KEY"
+```
+
+**Option B - local npm server (needs API key)**
+
+API key is **required** here. No anonymous tier. Hits your account directly.
 
 ```bash
 claude mcp add exa -e EXA_API_KEY=YOUR_KEY -- npx -y exa-mcp-server

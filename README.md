@@ -3,16 +3,20 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![Plugin version](https://img.shields.io/badge/websearch-1.0.0-blue.svg)](./plugins/websearch)
 
-Mirko Bozzetto's curated Claude Code skills marketplace.
+Mirko Bozzetto's curated skills for AI coding agents.
+
+Skills are markdown-based, portable across providers (Claude Code, Codex, Cursor, etc.). Native plugin install is wired for Claude Code; other providers can load the skill files directly.
 
 First plugin: `/websearch` - a power web search skill that wraps [Exa MCP](https://exa.ai) under a single command with 8 intent-routed modes. Replaces native `WebSearch` and `WebFetch` with semantic search, structured deep research, code lookup, docs crawling, and inline-cited reports.
 
 ---
 
-## Quick install
+## Quick install (Claude Code)
 
 ```bash
-# 1. Sign up at https://dashboard.exa.ai and copy an API key
+# 1. (Optional) Sign up at https://dashboard.exa.ai and copy an API key
+#    Free anonymous tier works without a key, rate-limited.
+#    Add a key only when you hit rate limits.
 
 # 2. Add the Exa MCP server (hosted, recommended)
 claude mcp add --transport http exa https://mcp.exa.ai/mcp
@@ -29,6 +33,18 @@ claude mcp list
 ```
 
 Full setup walkthrough, mode reference, troubleshooting → [plugins/websearch/README.md](./plugins/websearch/README.md).
+
+---
+
+## Install on other agents (Codex, Cursor, etc.)
+
+Skills here are plain markdown. To use them outside Claude Code:
+
+1. Clone the repo or copy `plugins/websearch/skills/websearch/` into your agent's skill/prompt directory.
+2. Wire the agent's MCP config to Exa (hosted or local). Most modern coding agents support MCP.
+3. Invoke per your agent's slash/skill mechanism.
+
+The skill body assumes the 4 Exa MCP tools (`web_search_exa`, `get_code_context_exa`, `crawling_exa`, `web_search_advanced_exa`). Any agent that can call those will work.
 
 ---
 
@@ -66,11 +82,11 @@ More plugins may land here over time. Marketplace name stays `arsenal`.
 
 ## Prerequisites
 
-- Claude Code v2.1+ (slash plugin commands)
-- Exa MCP server connected (`mcp__exa__*` tools available)
-- Exa API key ([free tier](https://dashboard.exa.ai/api-keys): 1,000 searches/month)
+- Claude Code v2.1+ for the native plugin install (slash plugin commands).
+- Exa MCP server connected (`mcp__exa__*` tools available).
+- Exa API key **optional** - hosted endpoint `https://mcp.exa.ai/mcp` works anonymously with a free, rate-limited tier. Add a key via header `Authorization: Bearer KEY` or `x-api-key: KEY` to bypass rate limits.
 
-See [docs.exa.ai/reference/exa-mcp](https://docs.exa.ai/reference/exa-mcp) for Exa MCP details.
+Get a free key at [dashboard.exa.ai/api-keys](https://dashboard.exa.ai/api-keys). See [docs.exa.ai/reference/exa-mcp](https://docs.exa.ai/reference/exa-mcp) for Exa MCP details.
 
 ---
 

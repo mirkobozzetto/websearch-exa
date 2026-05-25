@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "arsenal",
-  "description": "Mirko Bozzetto's curated Claude Code skills marketplace",
+  "description": "Mirko Bozzetto's curated skills for AI coding agents (Claude Code, Codex, Cursor, ...)",
   "owner": {
     "name": "Mirko Bozzetto",
     "email": "mirko.prodev@gmail.com"
