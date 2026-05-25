@@ -1,11 +1,11 @@
-# websearch-exa
+# arsenal
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![Plugin version](https://img.shields.io/badge/websearch-1.0.0-blue.svg)](./plugins/websearch)
 
-A Claude Code marketplace hosting `/websearch`, a power web search skill that wraps [Exa MCP](https://exa.ai) under a single command with 8 intent-routed modes.
+Mirko Bozzetto's curated Claude Code skills marketplace.
 
-Replaces native `WebSearch` and `WebFetch` with a semantic search engine built for LLMs, structured deep research, code lookup, docs crawling, and inline-cited reports.
+First plugin: `/websearch` - a power web search skill that wraps [Exa MCP](https://exa.ai) under a single command with 8 intent-routed modes. Replaces native `WebSearch` and `WebFetch` with semantic search, structured deep research, code lookup, docs crawling, and inline-cited reports.
 
 ---
 
@@ -21,8 +21,8 @@ claude mcp add --transport http exa https://mcp.exa.ai/mcp
 claude mcp list
 
 # 4. Inside Claude Code:
-/plugin marketplace add mirkobozzetto/websearch-exa
-/plugin install websearch@websearch-exa
+/plugin marketplace add mirkobozzetto/arsenal
+/plugin install websearch@arsenal
 
 # 5. Try it
 /websearch what is gRPC
@@ -60,7 +60,7 @@ Help: `--info` (full tutorial inside the skill).
 |--------|---------|-------------|
 | [websearch](./plugins/websearch) | 1.0.0 | Intent-routed web search via Exa MCP (8 modes) |
 
-More skills may land here over time. The marketplace name stays `websearch-exa` for clarity.
+More plugins may land here over time. Marketplace name stays `arsenal`.
 
 ---
 
@@ -94,7 +94,7 @@ See [docs.exa.ai/reference/exa-mcp](https://docs.exa.ai/reference/exa-mcp) for E
 
 ## Contributing
 
-Open an issue or PR at [github.com/mirkobozzetto/websearch-exa](https://github.com/mirkobozzetto/websearch-exa). One concern per PR. Bump semver on any change shipping to users.
+Open an issue or PR at [github.com/mirkobozzetto/arsenal](https://github.com/mirkobozzetto/arsenal). One concern per PR. Bump semver on any change shipping to users.
 
 ---
 

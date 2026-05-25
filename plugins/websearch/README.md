@@ -103,11 +103,11 @@ Tool names may evolve. The skill tries the canonical name first and falls back t
 ### 4. Install the websearch plugin
 
 ```
-/plugin marketplace add mirkobozzetto/websearch-exa
-/plugin install websearch@websearch-exa
+/plugin marketplace add mirkobozzetto/arsenal
+/plugin install websearch@arsenal
 ```
 
-This downloads the plugin into `~/.claude/plugins/cache/websearch-exa/` and registers the `/websearch` slash command.
+This downloads the plugin into `~/.claude/plugins/cache/arsenal/` and registers the `/websearch` slash command.
 
 ### 5. First run
 
@@ -372,7 +372,7 @@ Orders of magnitude per command (input + output combined):
 
 **Skill installed but `/websearch` not recognized**
 
-- Run `/plugin list` and confirm `websearch@websearch-exa` is installed.
+- Run `/plugin list` and confirm `websearch@arsenal` is installed.
 - Restart Claude Code. Slash commands register at session start.
 
 **Search returns no results**
@@ -386,7 +386,7 @@ Orders of magnitude per command (input + output combined):
 ## Architecture
 
 ```
-websearch-exa/                                repo root (this marketplace)
+arsenal/                                repo root (this marketplace)
 ├── .claude-plugin/
 │   └── marketplace.json                      lists the plugin
 └── plugins/
@@ -414,7 +414,7 @@ Progressive disclosure: Claude only loads `SKILL.md` initially (~80 lines). Step
 
 ## Contributing
 
-Issues and PRs welcome at [github.com/mirkobozzetto/websearch-exa](https://github.com/mirkobozzetto/websearch-exa).
+Issues and PRs welcome at [github.com/mirkobozzetto/arsenal](https://github.com/mirkobozzetto/arsenal).
 
 Keep changes focused: one mode, one flag, or one ref file per PR.
 

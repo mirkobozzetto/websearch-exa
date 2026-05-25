@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
-  "name": "websearch-exa",
-  "description": "Power web search skill for Claude Code, powered by Exa MCP",
+  "name": "arsenal",
+  "description": "Mirko Bozzetto's curated Claude Code skills marketplace",
   "owner": {
     "name": "Mirko Bozzetto",
     "email": "mirko.prodev@gmail.com"
@@ -15,7 +15,7 @@
       "category": "research",
       "tags": ["exa", "search", "research", "docs", "debug"],
       "license": "MIT",
-      "homepage": "https://github.com/mirkobozzetto/websearch-exa"
+      "homepage": "https://github.com/mirkobozzetto/arsenal"
     }
   ]
 }
